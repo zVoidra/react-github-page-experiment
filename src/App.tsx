@@ -1,9 +1,10 @@
+import BlackHoleWithOrbit from './assets/BlackHole/BlackHole'
 import './App.css'
 
 function App() {
   return (
     <>
-      <h1>Neutron star.</h1>
+      <BlackHoleWithOrbit/>
     </>
   )
 }
