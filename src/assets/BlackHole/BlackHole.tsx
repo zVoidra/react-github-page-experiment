@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './BlacHole.css';
 
 export default function BlackHoleWithOrbit() {
@@ -16,19 +16,21 @@ export default function BlackHoleWithOrbit() {
   }, []);
 
   // Calculate x and y coordinates based on the angle
-  const radius = 150;
+  const radius = 300;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
 
   return (
-    <div className="black-hole-container">
-      <div className="black-hole"></div>
-      <div
-        className="planet"
-        style={{
-          transform: `translate(${x}px, ${y}px)`,
-        }}
-      ></div>
-    </div>
+    <>
+      <div className="space">
+        <div className="black-hole"/>
+        <div
+          className="planet"
+          style={{
+            transform: `translate(${x}px, ${y}px)`,
+          }}
+          />
+      </div>
+    </>
   );
 };
