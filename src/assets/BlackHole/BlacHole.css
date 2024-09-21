@@ -13,6 +13,7 @@
   width: 20px;
   height: 20px;
   background-color: gold;
+  box-shadow: 0 0 20px rgba(222, 255, 57, 0.8);
   border-radius: 50%;
   z-index: 2;
 }

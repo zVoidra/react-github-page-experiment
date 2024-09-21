@@ -7,18 +7,23 @@ export default function BlackHoleWithOrbit() {
   // Use useEffect to continuously update the position of the planet
   useEffect(() => {
     const orbitSpeed = 0.02; // Adjust to control speed
+    let animationFrameId : number;
+
     const updateOrbit = () => {
-      setAngle((prevAngle) => prevAngle + orbitSpeed);
-      requestAnimationFrame(updateOrbit);
+      setAngle((prevAngle) => (prevAngle + orbitSpeed) % (2 * Math.PI));
+      animationFrameId = requestAnimationFrame(updateOrbit);
     };
 
     updateOrbit();
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   // Calculate x and y coordinates based on the angle
-  const radius = 300;
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
+  const radiusX = 300;
+  const radiusY = 150;
+  const x = Math.cos(angle) * radiusX;
+  const y = Math.sin(angle) * radiusY;
 
   return (
     <>
